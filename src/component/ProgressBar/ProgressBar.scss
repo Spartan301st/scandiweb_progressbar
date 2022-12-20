@@ -1,0 +1,66 @@
+.ProgressBar{ 
+    &-BarContainer {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+        min-height: var(--breadcrumbs-height);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &-BarContent {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    &-Circle {
+        height: calc(var(--breadcrumbs-height) * 0.9);
+        width: auto;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        font-size: 1.3rem;
+        background-color: rgb(207, 207, 207);
+        color: var(--secondary-dark-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 5px solid var(--breadcrumbs-background);
+        transition: 0.5s ease-in-out;
+    }
+    &-Circle.active {
+        // background-color: var(--primary-dark-color);
+        background-color: var(--primary-base-color);
+        color: white;
+        
+    }
+    &-Circle.checked::after{    
+        content: "";
+        position: absolute; 
+        top: 50%;
+        transform: translateY(-60%) rotate(135deg) !important;
+        background-color: var(--primary-base-color);
+        width: 14px;
+        height: 7px;
+        border-right: 2px solid white;
+        border-top: 2px solid white;
+        transition: 0.5s ease-in-out;
+    }
+
+    &-ProgressIndicator {
+        transition: all 0.5s ease-in-out;
+        position: absolute;
+        background:  linear-gradient(90deg, rgb(207, 207, 207) 0%, rgb(207, 207, 207) 100%);
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        border-radius: 5px;
+        width: 100%;
+        z-index: -1;
+        height: 5px;
+        transition: all 0.5s ease-in-out;
+    }
+}
